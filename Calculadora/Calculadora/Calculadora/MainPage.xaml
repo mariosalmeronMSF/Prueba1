@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Calculadora.MainPage">
+
+
+    <Page.Resources>
+        
+        <Style x:Key="estiloGrid" TargetType="Grid">
+            <Setter Property="BackgroundColor" Value="White"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+        <Style x:Key="estiloGridClaro" TargetType="Grid">
+            <Setter Property="BackgroundColor" Value="LightBlue"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+        <Style x:Key="estiloGridOscuro" TargetType="Grid">
+            <Setter Property="BackgroundColor" Value="Purple"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+        <Style x:Key="estiloBotonesNumeros" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="White"/>
+            <Setter Property="BorderColor" Value="Gray"/>
+            <Setter Property="FontSize" Value="35"/>
+        </Style>
+        <Style x:Key="estiloBotonesNumerosClaro" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="LightYellow"/>
+            <Setter Property="BorderColor" Value="Black"/>
+            <Setter Property="FontSize" Value="35"/>
+        </Style>
+        <Style x:Key="estiloBotonesNumerosOscuro" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="black"/>
+            <Setter Property="BorderColor" Value="DarkRed"/>
+            <Setter Property="FontSize" Value="35"/>
+            <Setter Property="TextColor" Value="White"/>
+        </Style>
+        <Style x:Key="estiloBotonesOperadores" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="Orange"/>
+            <Setter Property="FontSize" Value="35"/>
+            <Setter Property="BorderColor" Value="Gray"/>
+            <Setter Property="TextColor" Value="White"/>
+        </Style>
+        <Style x:Key="estiloBotonesOperadoresClaro" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="LightPink"/>
+            <Setter Property="FontSize" Value="35"/>
+            <Setter Property="BorderColor" Value="Red"/>
+            <Setter Property="TextColor" Value="White"/>
+        </Style>
+        <Style x:Key="estiloBotonesOperadoresOscuro" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="Green"/>
+            <Setter Property="FontSize" Value="35"/>
+            <Setter Property="BorderColor" Value="Black"/>
+            <Setter Property="TextColor" Value="DarkGreen"/>
+        </Style>
+        <Style x:Key="estiloBotonClaro" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="LightBlue"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="BorderColor" Value="DarkBlue"/>
+        </Style>
+        <Style x:Key="estiloBotonOscuro" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="Red"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="BorderColor" Value="Darkred"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid Style="{DynamicResource estiloGrid}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label x:Name="textoResultado" FontSize="50" FontAttributes="Bold" TextColor="White" Text="0" BackgroundColor="Black" Grid.ColumnSpan="4" VerticalTextAlignment="Center" HorizontalTextAlignment="End"></Label>
+
+        <Button x:Name="boton7" Text="7" Grid.Row="1" Grid.Column="0" Style="{DynamicResource estiloBotonesNumeros}" Clicked="clickedNumeros"></Button>
+        <Button x:Name="boton8" Text="8" Grid.Row="1" Grid.Column="1" Style="{DynamicResource estiloBotonesNumeros}" Clicked="clickedNumeros"></Button>
+        <Button x:Name="boton9" Text="9" Grid.Row="1" Grid.Column="2" Style="{DynamicResource estiloBotonesNumeros}" Clicked="clickedNumeros"></Button>
+        <Button x:Name="boton4" Text="4" Grid.Row="2" Grid.Column="0" Style="{DynamicResource estiloBotonesNumeros}" Clicked="clickedNumeros"></Button>
+        <Button x:Name="boton5" Text="5" Grid.Row="2" Grid.Column="1" Style="{DynamicResource estiloBotonesNumeros}" Clicked="clickedNumeros"></Button>
+        <Button x:Name="boton6" Text="6" Grid.Row="2" Grid.Column="2" Style="{DynamicResource estiloBotonesNumeros}" Clicked="clickedNumeros"></Button>
+        <Button x:Name="boton1" Text="1" Grid.Row="3" Grid.Column="0" Style="{DynamicResource estiloBotonesNumeros}" Clicked="clickedNumeros"></Button>
+        <Button x:Name="boton2" Text="2" Grid.Row="3" Grid.Column="1" Style="{DynamicResource estiloBotonesNumeros}" Clicked="clickedNumeros"></Button>
+        <Button x:Name="boton3" Text="3" Grid.Row="3" Grid.Column="2" Style="{DynamicResource estiloBotonesNumeros}" Clicked="clickedNumeros"></Button>
+        <Button x:Name="boton0" Text="0" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Style="{DynamicResource estiloBotonesNumeros}" Clicked="clickedNumeros"></Button>
+
+        <Button x:Name="botonSumar" Grid.Row="4" Grid.Column="3" Text="+" Style="{DynamicResource estiloBotonesOperadores}" Clicked="botonSumar_Clicked"></Button>
+        <Button x:Name="botonRestar" Grid.Row="3" Grid.Column="3" Text="-" Style="{DynamicResource estiloBotonesOperadores}" Clicked="botonRestar_Clicked"></Button>
+        <Button x:Name="botonMultiplicar" Grid.Row="2" Grid.Column="3" Text="x" Style="{DynamicResource estiloBotonesOperadores}" Clicked="botonMultiplicar_Clicked"></Button>
+        <Button x:Name="botonDividir" Grid.Row="1" Grid.Column="3" Text="÷" Style="{DynamicResource estiloBotonesOperadores}" Clicked="botonDividir_Clicked"></Button>
+        <Button x:Name="botonResultado" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Style="{DynamicResource estiloBotonesOperadores}" Text="=" Clicked="botonResultado_Clicked"></Button>
+        <Button x:Name="botonLimpiar" Grid.Row="5" Grid.Column="0" Style="{DynamicResource estiloBotonesOperadores}" BackgroundColor="Gray" BorderColor="Black" Text="C"  Clicked="botonLimpiar_Clicked"></Button>
+        <Button x:Name="botonTemaClaro" Grid.Row="6" Grid.ColumnSpan="2" Text="Claro" Style="{StaticResource estiloBotonClaro}" Clicked="botonTemaClaro_Clicked"></Button>
+        <Button x:Name="botonTemaOscuro" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Text="Oscuro" Style="{StaticResource estiloBotonOscuro}" Clicked="botonTemaOscuro_Clicked"></Button>
+        <ScrollView Grid.RowSpan="6" Grid.Column="4">
+            <StackLayout x:Name="resultados">
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
